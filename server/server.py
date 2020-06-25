@@ -14,4 +14,4 @@ class PramWebServer(object):
 
 
 if __name__ == '__main__':
-    cherrypy.quickstart(StringGenerator())
+    cherrypy.quickstart(PramWebServer())
