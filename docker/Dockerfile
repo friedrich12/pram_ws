@@ -16,6 +16,9 @@ RUN apt install -y git python3-pip python3-psutil net-tools
 RUN pip3 install pip install git+https://github.com/momacs/pram.git
 RUN pip3 install attrs --upgrade
 RUN pip3 install cherrypy
+RUN pip3 install lxml
+RUN pip3 install jinja2
+RUN pip3 install flask
 RUN git clone https://github.com/momacs/pram
 RUN cd pram/src/sim/01-simple && python3 sim.py
 

@@ -1,3 +1,5 @@
+#from flask import Flask, render_template, request
+from jinja2 import Template
 import random
 import string
 import cherrypy
@@ -21,7 +23,13 @@ class PramWebServer(object):
 
     @cherrypy.expose
     def simple(self):
-        return "Running simple"
+        with open("index.html") as file:
+            data = file.readlines()
+            tm = Template(str(data))
+            job = "SAMPLE"
+            out = "LALAL"
+            rez = tm.render(jobname=job, output=out)
+        return rez
     
 
 if __name__ == '__main__':
