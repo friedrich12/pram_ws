@@ -6,7 +6,7 @@
 #$ docker start -a -i pram0
 
 # docker inspect <container name or container id>
-
+# Nginx
 
 
 FROM ubuntu:18.04
