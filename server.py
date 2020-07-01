@@ -7,23 +7,23 @@ from os.path import abspath
 
 
 CP_CONF = {
-        '/dist': {
+        '/': {
              'tools.staticdir.on': True,
              'tools.staticdir.dir': abspath('./dist') # staticdir needs an absolute path
         },
-        '/dist/css': {
+        '/css': {
             'tools.staticdir.on': True,
             'tools.staticdir.dir': abspath('./dist/css')
         },
-         '/dist/assets': {
+         '/assets': {
             'tools.staticdir.on': True,
             'tools.staticdir.dir': abspath('./dist/assets')
         },
-        '/dist/js': {
+        '/js': {
             'tools.staticdir.on': True,
             'tools.staticdir.dir': abspath('./dist/js')
         },
-        '/dist/scripts': {
+        '/scripts': {
             'tools.staticdir.on': True,
             'tools.staticdir.dir': abspath('./dist/scripts')
         }
