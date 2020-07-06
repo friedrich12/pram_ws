@@ -5,6 +5,7 @@ import string
 import cherrypy
 from os.path import abspath
 from render import Render
+from pram import PramRunner
 
 CP_CONF = {
         '/': {
@@ -31,14 +32,15 @@ CP_CONF = {
 
 
 class PramWebServer(object):
-
+    render = Render()
+    pram = PramRunner()
     @cherrypy.expose
     def index(self):
-        return render.getpage("index.html")
+        return self.render.getpage("index.html")
 
     @cherrypy.expose
     def index2(self):
-        data = render.getpage("dist/index.html")
+        data = self.render.getpage("dist/index.html")
         tm = Template(str(data))
         job = "NONE RUNNING"
         out = "NO JOBS"
@@ -48,8 +50,8 @@ class PramWebServer(object):
     @cherrypy.expose
     def simple(self):
        name = "NAME"
-       out = "LALALA"
-       render.setjob(name,out) 
+       out = self.pram.simple()
+       return self.render.setjob(name,out) 
     
 
 if __name__ == '__main__':
