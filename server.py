@@ -4,7 +4,7 @@ import random
 import string
 import cherrypy
 from os.path import abspath
-
+from render import Render
 
 CP_CONF = {
         '/': {
@@ -31,13 +31,6 @@ CP_CONF = {
 
 
 class PramWebServer(object):
-    sample = False
-    
-    def getpage(self, path):
-        with open(path) as file:
-            data = file.readlines()
-            page = ''.join(data)
-            return str(page)
 
     @cherrypy.expose
     def index(self):
@@ -46,25 +39,17 @@ class PramWebServer(object):
     @cherrypy.expose
     def index2(self):
         data = self.getpage("dist/index.html")
-        if self.sample == True:
-            tm = Template(str(data))
-            job = "SAMPLE"
-            out = "LALAL"
-            rez = tm.render(jobname=job, output=out)
-            return str(rez)
-        else: 
-            tm = Template(str(data))
-            job = "NONE RUNNING"
-            out = "NO JOBS"
-            rez = tm.render(jobname=job, output=out)
-            return str(rez) 
+        tm = Template(str(data))
+        job = "NONE RUNNING"
+        out = "NO JOBS"
+        rez = tm.render(jobname=job, output=out)
+        return str(rez) 
 
     @cherrypy.expose
     def simple(self):
-        with open("index.html") as file:
-            data = file.readlines()
-            self.sample = True
-            return data
+       name = "NAME"
+       out = "LALALA"
+       render.setjob(name,out) 
     
 
 if __name__ == '__main__':
