@@ -34,11 +34,11 @@ class PramWebServer(object):
 
     @cherrypy.expose
     def index(self):
-        return self.getpage("index.html")
+        return render.getpage("index.html")
 
     @cherrypy.expose
     def index2(self):
-        data = self.getpage("dist/index.html")
+        data = render.getpage("dist/index.html")
         tm = Template(str(data))
         job = "NONE RUNNING"
         out = "NO JOBS"
