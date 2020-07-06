@@ -5,7 +5,7 @@ import string
 import cherrypy
 from os.path import abspath
 from render import Render
-from pram import PramRunner
+from pramr import PramRunner
 
 CP_CONF = {
         '/': {
