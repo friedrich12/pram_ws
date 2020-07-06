@@ -42,6 +42,5 @@ class PramRunner(object):
         
         with open('out.dat') as file:
             data = file.readlines()
-            page = ''.join(data)
-            return str(page)
+            return str(data)
 
