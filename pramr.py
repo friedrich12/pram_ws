@@ -42,5 +42,5 @@ class PramRunner(object):
         
         with open('out.dat') as file:
             data = file.readlines()
-            return str(data)
+            return str(data).replace("\n'","<br>")
 
