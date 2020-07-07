@@ -16,6 +16,7 @@ from pram.sim    import Simulation
 
 
 class PramRunner(object):
+    data = ""
     def simple(self):
         progress_flu_rule = DiscreteInvMarkovChain('flu-status', { 's': [0.95, 0.05, 0.00], 'i': [0.00, 0.50, 0.50], 'r': [0.10, 0.00, 0.90] })
         # s - susceptible
@@ -41,6 +42,9 @@ class PramRunner(object):
         sys.stdout.close()
         
         with open('out.dat') as file:
-            data = file.readlines()
-            return str(data).replace("\n'","<br>")
+            self.data = file.readlines()
+            self.data = str(self.data)
+        apple  = self.data.replace('\\n', '<br>')
+       # print(apple)
+        return apple
 
