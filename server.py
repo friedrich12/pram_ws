@@ -49,7 +49,7 @@ class PramWebServer(object):
 
     @cherrypy.expose
     def simple(self):
-       name = "NAME"
+       name = "Simple Simulation"
        out = self.pram.simple()
        return self.render.setjob(name,out) 
     
